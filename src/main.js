@@ -3,12 +3,15 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import ejs from 'ejs';
 import logger from 'morgan';
+import dotenv from 'dotenv';
 
 import index from './routes/index';
 import tasks from './routes/tasks';
 
+dotenv.config();
+
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
